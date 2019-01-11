@@ -1,0 +1,158 @@
+{
+  "ecmaVersion": 5,
+  "plugins": {
+    "outline": {
+      
+    },
+    "chrome-apps": {
+      
+    },
+    "chrome-extension": {
+      
+    },
+    "guess-types": {
+      
+    },
+    "complete_strings": {
+      
+    },
+    "requirejs": {
+      
+    },
+    "eslint": {
+      
+    },
+    "node": {
+      
+    },
+    "gas": {
+      
+    },
+    "highlight": {
+      
+    },
+    "jasmine": {
+      
+    },
+    "jscs": {
+      
+    },
+    "jshint": {
+      
+    },
+    "lint": {
+      
+    },
+    "push": {
+      
+    },
+    "qunit": {
+      
+    },
+    "tabris": {
+      
+    },
+    "webpack": {
+      
+    },
+    "angular1": {
+      
+    },
+    "yui3": {
+      
+    },
+    "browser-extension": {
+      
+    },
+    "ckeditor4.4.x": {
+      
+    },
+    "closure": {
+      
+    },
+    "cordovajs": {
+      
+    },
+    "dojotoolkit1.10": {
+      
+    },
+    "node-express": {
+      
+    },
+    "extjs4.2.1": {
+      
+    },
+    "gcharts": {
+      
+    },
+    "gmaps3.frozen": {
+      
+    },
+    "grunt": {
+      
+    },
+    "gulp": {
+      
+    },
+    "liferay": {
+      
+    },
+    "meteor": {
+      
+    },
+    "node-mongodb-native": {
+      
+    },
+    "node-mongoose": {
+      
+    },
+    "phaser": {
+      
+    },
+    "qooxdoo4.1": {
+      
+    },
+    "snabbt": {
+      
+    },
+    "threejs": {
+      
+    },
+    "delite": {
+      
+    },
+    "node-extension": {
+      
+    },
+    "protractor": {
+      
+    },
+    "bootstrap": {
+      
+    },
+    "aui1.5.x": {
+      
+    },
+    "jquery-ui1-12": {
+      
+    },
+    "requirejs-extension": {
+      
+    },
+    "jquery-extension": {
+      
+    },
+    "jquery-mobile1.5": {
+      
+    }
+  },
+  "libs": [
+    "browser",
+    "fetch",
+    "titanium",
+    "underscore",
+    "webidl",
+    "jquery",
+    "chai"
+  ]
+}
