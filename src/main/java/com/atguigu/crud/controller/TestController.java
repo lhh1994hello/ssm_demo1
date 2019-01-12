@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("test")
 public class TestController {
 	
-	@RequestMapping("fun2")
-	public String fun2(String a,String b){
-		System.out.println("fun2...........，");
-		return "fun2";
-	}
+//	@RequestMapping("fun2")
+//	public String fun2(String a,String b){
+//		return "fun2";
+//	}
 
 }
