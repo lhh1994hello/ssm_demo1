@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.atguigu.crud.bean.Employee;
-import com.atguigu.crud.bean.Msg;
+import com.atguigu.crud.util.Msg;
 
 //作者:lhh 创建时间:2018年10月20日 下午3:16:59 
 @Controller

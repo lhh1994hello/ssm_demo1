@@ -35,7 +35,9 @@ public class FtpFileController {
 		}
 		String filename = file.getOriginalFilename();
 		filename = NumberUtils.getImageName() + "_" + filename;
-		FtpUtil.uploadFile("localhost", 21, "ftp", "123", "/", "/test/", filename, file.getInputStream());
+		String remotePath="skhx3.jpg";
+		boolean uploadFile = FtpUtil.uploadFile("localhost", 21, "ftp", "123", "/", "/test/", filename, file.getInputStream());
+		//boolean downloadFile = FtpUtil.downloadFile("localhost", 21, "ftp", "123", remotePath, "a", "E:/file");
 		return Msg.Success();
 	}
 }
