@@ -22,17 +22,25 @@
 
 </head>
 <body>
-	<h2>首页AAA</h2>
-	<h4>欢迎页Hello World</h4>
-	<input type="hidden" id="contextPath" name="contextPath" value=<%= request.getContextPath() %> > 
-	<button id="btn1" class="btn btn-default">测试重定向</button> &nbsp;&nbsp;
-	<a href="${APP_PATH}/user/fun1">点击跳转user</a> &nbsp;&nbsp;
-	<a href="${APP_PATH}/book/fun1">点击跳转book</a> &nbsp;&nbsp;
-	<a href="${APP_PATH}/thread/threadFun1">测试线程</a><br/><br/>
+	<input type="hidden" id="contextPath" name="contextPath" value=<%= request.getContextPath() %> > 	
+	<div class="container">
+		<div class="row">
+			<h4>欢迎页Hello World</h4>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<button id="btn1" class="btn btn-default">测试重定向</button> &nbsp;&nbsp;
+				<a href="${APP_PATH}/user/fun1">点击跳转user</a> &nbsp;&nbsp;
+				<a href="${APP_PATH}/book/fun1">点击跳转book</a> &nbsp;&nbsp;
+				<a href="${APP_PATH}/thread/threadFun1">测试线程</a><br/><br/>
+				<input class="fileInput" id="file_URL" type="file" name="file" title="修改头像">
+			</div>
+			<div class="col-md-3">
+				<a  href="${APP_PATH}/view/websocket/chatroom.jsp" class="btn btn-success">websocket聊天室1</a>
+			</div>
+		</div>
 	
-
-	<!-- <input  type="file"  id="file_URL"  name="file" value="ftp文件上传" /> -->
-	<input class="fileInput" id="file_URL" type="file" name="file" title="修改头像">
+	</div>
 	
 
 </body>
