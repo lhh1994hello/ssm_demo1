@@ -45,7 +45,7 @@ public class ChatSocket {
 		nickNames.add(nickName);
 		this.session = session;
 
-		Login login = new Login();
+		WebSocketLogin login = new WebSocketLogin();
 		login.setWelcome(nickName + "进入聊天室！！");
 		login.setNickNames(nickNames);
 
@@ -60,7 +60,7 @@ public class ChatSocket {
 		ss.remove(this);
 		nickNames.remove(nickName);
 
-		Login login = new Login();
+		WebSocketLogin login = new WebSocketLogin();
 		login.setWelcome(nickName + "退出聊天室！！");
 		login.setNickNames(nickNames);
 

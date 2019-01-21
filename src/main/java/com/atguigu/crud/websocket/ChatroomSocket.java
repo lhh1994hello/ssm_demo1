@@ -49,7 +49,7 @@ public class ChatroomSocket {
         ss.add(this);// 将当前对象加入到集合中
         nickNamesList.add(nickName);// 在线列表
 
-        Login login = new Login();
+        WebSocketLogin login = new WebSocketLogin();
         login.setWelcome(nickName + "进入聊天室！！");
         login.setNickNames(nickNamesList);
         String msg = JSON.toJSONString(login);
@@ -74,7 +74,7 @@ public class ChatroomSocket {
         logger.info("关闭连接啦! sid:{}", session.getId());
         ss.remove(this);// 从集合中移除
         nickNamesList.remove(nickName);
-        Login login = new Login();
+        WebSocketLogin login = new WebSocketLogin();
         login.setWelcome(nickName + "退出聊天室！！");
         login.setNickNames(nickNamesList);
         String msg = JSON.toJSONString(login);

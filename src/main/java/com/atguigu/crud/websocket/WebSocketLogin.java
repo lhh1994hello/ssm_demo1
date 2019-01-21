@@ -4,7 +4,7 @@ package com.atguigu.crud.websocket;
 
 import java.util.List;
 
-public class Login {
+public class WebSocketLogin {
 
 	private  String  welcome;
 	
@@ -22,7 +22,7 @@ public class Login {
 	public void setWelcome(String welcome) {
 		this.welcome = welcome;
 	}
-	public Login() {
+	public WebSocketLogin() {
 		super();
 	}
 	
