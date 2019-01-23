@@ -12,10 +12,9 @@ public class Question3 {
 	public void fun1() {
 		String s = "asdfawea";
 		int maxLength = lengthOfLongestSubstring(s);
-		String maxSubstring = maxSubstring(s);
+		int maxSubStrLen2 = maxSubStrLen2(s);
 		System.out.println(maxLength);
-		System.out.println(maxSubstring);
-
+		System.out.println(maxSubStrLen2);
 	}
 
 	// 最长子串,滑动窗口
@@ -25,7 +24,6 @@ public class Question3 {
 		int left = 0, right = -1;// 滑动窗口为s
 		int res = 0;// 用来记录子串的长度。
 		while (right + 1 < s.length()) {
-			//System.out.println("字符:" + s.charAt(right + 1));
 			if (freq[s.charAt(right + 1)] == 0) {
 				right++;
 				freq[s.charAt(right)]++;
@@ -35,19 +33,17 @@ public class Question3 {
 			}
 			int temp = right - left + 1;
 			res = res >= temp ? res : temp;
-
 		}
 		return res;
 	}
 
-	public String maxSubstring(String s) {
-		if (s == null) {
-			throw new RuntimeException("字符串不能为空!");
-		}
-		// 用来记录字符串是否出现过，单个字符对应编码的int值作为索引
+	// 求最长子串的长度，同时求出了最长的子串:
+	public int maxSubStrLen2(String s) {
+		int res = 0;//用来保存最长子串的长度
+		int left = 0;
+		int right = -1;
+		String subStr = "";//用来保存最长子串
 		int[] freq = new int[256];
-		int left = 0, right = -1;
-		int res = 0;// 子串的长度
 		while (right + 1 < s.length()) {
 			if (freq[s.charAt(right + 1)] == 0) {
 				right++;
@@ -57,21 +53,11 @@ public class Question3 {
 				left++;
 			}
 			int temp = right - left + 1;
-			res = res >= temp ? res : temp;//记录最大值
+			String tempStr = s.substring(left, right + 1);
+			subStr = subStr.length() >= tempStr.length() ? subStr : tempStr;
+			res = res >= temp ? res : temp;// 求最大值
 		}
-		System.out.println("长度："+res);
-		System.out.println("left:"+left);
-		System.out.println("right:"+right);
-		return s.substring(left, right + 1);
+		System.out.println("最长子串:" + subStr);
+		return res;
 	}
-
-	/*
-	 * public int lengthOfLongestSubstring(String s) {
-	 * //索引值是ASCII的值，用来记录对应ASCII出现的频率 int[] freq = new int[256]; int left = 0,
-	 * right = -1;//滑动窗口为s int res = 0;//用来记录子串的长度。 while (left < s.length()) {
-	 * if (right + 1 < s.length() && freq[s.charAt(right + 1)] == 0) { right++;
-	 * freq[s.charAt(right)]++; } else { freq[s.charAt(left)]--; left++; } int
-	 * temp = right - left + 1; res = res >= temp ? res : temp; } return res; }
-	 */
-
 }
