@@ -33,9 +33,8 @@ public class TwoNumSum {
 				result = new int[2];
 				result[0] = array[i];
 				result[1] = temp;
-				//break;
+				break;
 			}
-
 		}
 		return result;
 	}
