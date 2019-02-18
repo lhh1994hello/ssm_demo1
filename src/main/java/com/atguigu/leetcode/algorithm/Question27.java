@@ -1,5 +1,7 @@
 package com.atguigu.leetcode.algorithm;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 //作者:lhh 创建时间:2019年2月3日 下午2:29:45 
@@ -27,19 +29,31 @@ public class Question27 {
 	public void fun1() {
 		int[] nums = { 0, 1, 2, 2, 3, 0, 4, 2 };
 		int val = 2;
-
+		int len = removeElement(nums, val);
+		System.out.println("新的长度:" + len);
 	}
 
+	// [0, 1, 3, 0, 4, 0, 4, 2]
+	// 超出新长度后面的元素就不用管了
 	public int removeElement(int[] nums, int val) {
-		int count = 0;
+		int index = 0;
+		// 当数组的值不等于val时，len加一
 		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == val) {
-				count++;
-			} else {
-				
+			if (nums[i] != val) {
+				nums[index++] = nums[i];
 			}
-
 		}
-		return 0;
+		System.out.println(Arrays.toString(nums));
+		return index;
+	}
+
+	public int removeElement2(int[] nums, int val) {
+		int index = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] != val) {
+				nums[index++] = nums[i];
+			}
+		}
+		return index;
 	}
 }
