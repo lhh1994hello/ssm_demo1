@@ -11,6 +11,7 @@ import org.junit.Test;
  * @author lhh
  *
  */
+@SuppressWarnings("all")
 public class Question5 {
 	@Test
 	public void fun1() {

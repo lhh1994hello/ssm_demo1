@@ -1,7 +1,5 @@
 package com.atguigu.leetcode.algorithm;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
 //作者:lhh 创建时间:2019年2月3日 上午10:05:06 
@@ -17,6 +15,7 @@ import org.junit.Test;
  * @author lhh
  *
  */
+@SuppressWarnings("all")
 public class Question14 {
 	@Test
 	public void fun1() {
@@ -28,13 +27,13 @@ public class Question14 {
 
 	public static void main(String[] args) {
 		Question14 q = new Question14();
-		String[] strs3 = {  };
+		String[] strs3 = {};
 		String prefix = q.longestCommonPrefix(strs3);
 		System.out.println("最长前缀:" + prefix);
 	}
 
 	public String longestCommonPrefix(String[] strs) {
-		if (strs == null||strs.length==0) {
+		if (strs == null || strs.length == 0) {
 			return "";
 		}
 		boolean flag = true;

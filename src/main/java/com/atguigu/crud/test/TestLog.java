@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //作者:lhh 创建时间:2018年10月22日 上午9:03:04 
+@SuppressWarnings("all")
 public class TestLog {
 	public static void main(String[] args) {
 		Logger logger = LoggerFactory.getLogger(TestLog.class);

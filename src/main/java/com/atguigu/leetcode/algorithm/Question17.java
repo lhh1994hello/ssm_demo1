@@ -15,6 +15,7 @@ import org.junit.Test;
  * @author lhh
  *
  */
+@SuppressWarnings("all")
 public class Question17 {
 	String[] dict = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 

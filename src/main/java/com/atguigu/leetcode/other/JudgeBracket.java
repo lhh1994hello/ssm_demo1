@@ -12,6 +12,7 @@ import org.junit.Test;
  * @author lhh
  *
  */
+@SuppressWarnings("all")
 public class JudgeBracket {
 	@Test
 	public void fun1() {

@@ -12,6 +12,7 @@ import redis.clients.jedis.JedisPool;
  *
  */
 @Component
+@SuppressWarnings("all")
 public class JedisClient {
 	private static JedisPool jedisPool;
 
@@ -20,5 +21,5 @@ public class JedisClient {
 	static {
 		jedisPool = new JedisPool(REDIS_HOST, REDIS_PORT);
 	}
-	
+
 }

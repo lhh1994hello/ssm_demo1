@@ -14,6 +14,7 @@ import com.atguigu.crud.util.Msg;
 //作者:lhh 创建时间:2018年10月20日 下午3:16:59 
 @Controller
 @RequestMapping(value = "/book")
+@SuppressWarnings("all")
 public class BookController {
 	@RequestMapping(value = "/fun1")
 	public String fun1(RedirectAttributes redirectAttributes, Model model) {

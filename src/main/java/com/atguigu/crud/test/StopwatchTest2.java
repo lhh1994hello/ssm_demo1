@@ -6,6 +6,7 @@ import org.springframework.util.StopWatch.TaskInfo;
 import com.alibaba.fastjson.JSON;
 
 //作者:lhh 创建时间:2018年11月26日 上午10:49:05 
+@SuppressWarnings("all")
 public class StopwatchTest2 {
 	public static void main(String[] args) {
 		StopWatchDemo demo = new StopWatchDemo();

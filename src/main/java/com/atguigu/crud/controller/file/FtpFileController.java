@@ -22,6 +22,7 @@ import com.atguigu.crud.util.NumberUtils;
  */
 @Controller
 @RequestMapping("/ftpfile")
+@SuppressWarnings("all")
 public class FtpFileController {
 	Logger logger = LoggerFactory.getLogger(FtpFileController.class);
 

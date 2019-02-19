@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
  * @author lhh
  *
  */
+@SuppressWarnings("all")
 public class PlaceholderTest {
 	private final Logger logger = LoggerFactory.getLogger(PlaceholderTest.class);
 
