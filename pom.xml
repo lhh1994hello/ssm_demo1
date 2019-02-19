@@ -34,6 +34,7 @@
 
 	<properties>
 		<spring.version>4.3.7.RELEASE</spring.version>
+		<httpclient.version>4.5.7</httpclient.version>
 	</properties>
 
 
@@ -263,16 +264,20 @@
 			<version>1.8</version>
 		</dependency>
 		<!-- redis依赖 -->
-		<!-- <dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-redis</artifactId>
-			<version>1.8.4.RELEASE</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.springframework.data</groupId> <artifactId>spring-data-redis</artifactId> 
+			<version>1.8.4.RELEASE</version> </dependency> -->
 		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>2.9.0</version>
 		</dependency>
+		<!-- httpClient依赖 -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

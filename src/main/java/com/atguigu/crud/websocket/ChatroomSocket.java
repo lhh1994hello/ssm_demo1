@@ -23,6 +23,7 @@ import com.alibaba.fastjson.JSON;
  *
  * @author lhh
  */
+@SuppressWarnings("all")
 @ServerEndpoint("/chatroom")
 public class ChatroomSocket {
 
