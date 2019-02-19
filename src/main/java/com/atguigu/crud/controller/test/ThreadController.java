@@ -1,4 +1,4 @@
-package com.atguigu.crud.controller;
+package com.atguigu.crud.controller.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

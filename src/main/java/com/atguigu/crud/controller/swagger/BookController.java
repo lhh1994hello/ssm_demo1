@@ -1,4 +1,4 @@
-package com.atguigu.crud.controller;
+package com.atguigu.crud.controller.swagger;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

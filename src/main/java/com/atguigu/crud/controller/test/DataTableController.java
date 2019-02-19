@@ -1,4 +1,4 @@
-package com.atguigu.crud.controller;
+package com.atguigu.crud.controller.test;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.atguigu.crud.bean.DataTableBean;
 import com.atguigu.crud.bean.Employee;
+import com.atguigu.crud.bean.OfficeBean;
 import com.atguigu.crud.service.EmployeeService;
 import com.atguigu.crud.util.Msg;
 

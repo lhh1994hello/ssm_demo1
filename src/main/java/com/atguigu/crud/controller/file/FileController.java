@@ -1,4 +1,4 @@
-package com.atguigu.crud.controller;
+package com.atguigu.crud.controller.file;
 //作者:lhh 创建时间:2018年12月25日 上午9:01:31 
 
 import java.io.BufferedInputStream;

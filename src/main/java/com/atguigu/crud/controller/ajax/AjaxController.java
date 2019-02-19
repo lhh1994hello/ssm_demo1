@@ -1,4 +1,4 @@
-package com.atguigu.crud.controller;
+package com.atguigu.crud.controller.ajax;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

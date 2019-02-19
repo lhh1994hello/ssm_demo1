@@ -1,4 +1,4 @@
-package com.atguigu.crud.controller;
+package com.atguigu.crud.bean;
 
 import java.io.Serializable;
 import java.util.Date;
