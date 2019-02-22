@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,6 +21,19 @@ import com.qiniu.util.Auth;
 @Service
 public class QiniuyunService {
 	private static final Logger logger = LoggerFactory.getLogger(QiniuyunService.class);
+	// 域名
+	@Value("${qiniuyun.domain.name}")
+	private String qiniuyunDomainName;
+	// 连接参数
+	@Value("${qiniuyun.accesskey}")
+	private String qiniuyunAccesskey;
+	// 秘钥
+	@Value("${qiniuyun.secretkey}")
+	private String qiniuyunSecretkey;
+	// 要上传的空间
+	@Value("${qinuiyun.bucketname}")
+	private String qiniuyunBucketname;
+
 	// 图片允许的后缀扩展名
 	public static String[] IMAGE_FILE_EXTD = new String[] { "png", "bmp", "jpg", "jpeg", "pdf" };
 	// 设置好账号的ACCESS_KEY和SECRET_KEY
@@ -43,6 +57,8 @@ public class QiniuyunService {
 	}
 
 	public String saveImage(MultipartFile file) throws IOException {
+		logger.info("域名:{},上传空间:{},ACCESS_KEY:{},SECRET_KEY:{}", qiniuyunDomainName, qiniuyunBucketname,
+				qiniuyunAccesskey, qiniuyunSecretkey);
 		try {
 			int dotPos = file.getOriginalFilename().lastIndexOf(".");
 			if (dotPos < 0) {

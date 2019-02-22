@@ -32,7 +32,7 @@
 		<span>异步上传图片:</span>
 		<input class="fileInput" id="file_URL" type="file" name="file" title="修改头像">
 		<br/> 
-		<img id="imgId" alt="测试七牛云" title="测试七牛云"  src="http://plcvrz69s.bkt.clouddn.com/d8bfb3e71fd44a2eae0bae7e48bb8a97.jpg">
+		<img id="imgId" alt="测试七牛云" title="测试七牛云"  src="http://lhh1994.xyz/9a829e8e02b3409d9c2cad78dac6b86e.jpg">
 		
 	</div>
 
