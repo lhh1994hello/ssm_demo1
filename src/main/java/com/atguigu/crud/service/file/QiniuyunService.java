@@ -26,7 +26,7 @@ public class QiniuyunService {
 	String ACCESS_KEY = "A0YXyW8wWSEU9C3vq7-UYWPlVyhGpJ5Y_KBmlI3V";
 	String SECRET_KEY = "zzFqh-pV2yhwJKusFawv2B6KtWgcdTvhrf6h8xKx";
 	// 要上传的空间
-	String bucketname = "lhh2019";
+	String bucketname = "lhh888";
 
 	// 密钥配置
 	Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
@@ -35,7 +35,7 @@ public class QiniuyunService {
 	// ...其他参数参考类注释
 	UploadManager uploadManager = new UploadManager(cfg);
 	// 测试域名，只有30天有效期
-	private static String QINIU_IMAGE_DOMAIN = "http://plcvrz69s.bkt.clouddn.com/";
+	private static String QINIU_IMAGE_DOMAIN = "http://lhh1994.xyz/";
 
 	// 简单上传，使用默认策略，只需要设置上传的空间名就可以了
 	public String getUpToken() {
