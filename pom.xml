@@ -35,11 +35,23 @@
 	<properties>
 		<spring.version>4.3.7.RELEASE</spring.version>
 		<httpclient.version>4.5.7</httpclient.version>
+		<webservice.version>3.1.6</webservice.version>
 	</properties>
 
 
 	<!--导入jar包 -->
 	<dependencies>
+		<!-- webService依赖的 -->
+		<dependency>	   
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>3.1.10</version>
+		</dependency>
+		<dependency>   
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>3.1.10</version>
+		</dependency>
 		<!-- ①WebSocket 依赖 -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>

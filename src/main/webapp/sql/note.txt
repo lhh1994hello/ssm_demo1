@@ -1,1 +1,5 @@
-项目git地址:https://github.com/lhh1994hello/ssm_demo1.git
+1.项目git地址:https://github.com/lhh1994hello/ssm_demo1.git
+2.webService测试:http://localhost:8088/ssm_demo1/webservice/testServiceImpl
+                http://localhost:8088/ssm_demo1/webservice
+                
+
