@@ -1,6 +1,7 @@
 package com.atguigu.crud.controller.file;
 
 import java.io.IOException;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,7 @@ public class QiniuyunUploadController {
 		}
 		try {
 			String fileUrl = qiniuyunService.saveImage(file);
-			logger.info("图片地址:" + fileUrl);
+			logger.info("图片地址:" + fileUrl+"时间:"+new Date().getTime());
 			return Msg.Success().add("imageUrl", fileUrl);
 		} catch (IOException e) {
 			e.printStackTrace();

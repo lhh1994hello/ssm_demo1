@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>select2测试1</title>
+<script type="text/javascript" src="../../static/js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../static/js/select2.js"></script>
+<script type="text/javascript" src="../../static/js/self/select2.self.js"></script>
+<link rel="stylesheet" type="text/css" href="../../static/css/select2.css">
+	
+</head>
+<body>
+	<h3>测试select2多选</h3>
+
+
+	<div>
+		<label style="width: 100px; font-size: 14px;">单选</label> <select
+			id="sel_menu" style="width: 400px;">
+			<option value=""></option>
+		</select>
+	</div>
+	<div style="margin-top: 20px;">
+		<label style="width: 100px; font-size: 14px;">多选</label> <select
+			id="sel_menu2" multiple="multiple" style="width: 400px;"></select>
+	</div>
+	<div style="margin-top: 20px;">
+		<label style="width: 100px; font-size: 14px;">多选(含选中项)</label> <select
+			id="sel_menu3" multiple="multiple" style="width: 400px;">
+		</select>
+	</div>
+	<div style="margin-top: 20px;">
+		<label style="width: 100px; font-size: 14px;">多选测试</label> <select
+			id="sel_menu4" multiple="multiple" style="width: 400px;">
+			<option value="">--请选择--</option>                 
+			<option value="">阿里</option>                 
+			<option value="">阿姨</option>                 
+			<option value="">江南</option>                 
+			<option value="">杭州</option>                 
+			<option value="">无锡</option>                 
+			<option value="">上海</option>
+		</select>
+	</div>
+
+	<button onclick=getSelectedData() style="margin-top: 20px;">多选选中值</button>
+</body>
+</html>

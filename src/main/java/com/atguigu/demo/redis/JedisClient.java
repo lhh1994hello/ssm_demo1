@@ -1,4 +1,4 @@
-package com.atguigu.redis;
+package com.atguigu.demo.redis;
 
 import org.springframework.stereotype.Component;
 

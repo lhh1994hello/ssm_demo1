@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 public class PlaceholderTest {
 	private final Logger logger = LoggerFactory.getLogger(PlaceholderTest.class);
 
-	@Test
+	//@Test
 	public void fun1() throws UnknownHostException {
 		String content = "http://{0}:8088/ssm_demo1/active?uActivaecode={1}";
 		InetAddress myip = null;
