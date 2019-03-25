@@ -2,4 +2,6 @@
 2.webService测试:http://localhost:8088/ssm_demo1/webservice/testServiceImpl
                 http://localhost:8088/ssm_demo1/webservice
                 
+3.swagger访问路径:http://localhost:8088/ssm_demo1/swagger-ui.html#/
+                
 

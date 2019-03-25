@@ -10,7 +10,7 @@
 	<context:property-placeholder location="classpath:*.properties" />
 
 	<!-- 和spring配置文件中的配置很像 -->
-	<context:component-scan base-package="com.atguigu"	use-default-filters="false">
+	<context:component-scan base-package="com.atguigu.crud"	use-default-filters="false">
 		<!-- 只扫描控制器 :带有Controller注解的就是 -->
 		<context:include-filter type="annotation"	expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>

@@ -25,7 +25,8 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
                 <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ----> [%thread] ---> %-5level %logger{50} - %msg%n</pattern>
             </springProfile>
             <springProfile name="!dev">
-                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ====>>> [%thread] ==== %-5level %logger{50} - %msg%n</pattern>
+                <!-- <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ====>>> [%thread] ==== %-5level %logger{50} - %msg%n</pattern> -->
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}-[%thread]-[%-5level]-[%logger{50}.%method\(\):%line]-%msg%n</pattern>
             </springProfile>
         </layout>
     </appender>
