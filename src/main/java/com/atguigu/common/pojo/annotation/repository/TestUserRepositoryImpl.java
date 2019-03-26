@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @date 2019/3/24 22:54
  * @Description:
  */
-@Repository
+@Repository(value = "userRepository")
 public class TestUserRepositoryImpl implements TestUserRepository {
     public TestUserRepositoryImpl() {
         System.out.println("构造器，TestUserRepositoryImpl...");

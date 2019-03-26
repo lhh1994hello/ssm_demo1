@@ -2,6 +2,7 @@ package com.atguigu.common.pojo.annotation.service;
 
 import com.atguigu.common.pojo.annotation.repository.TestUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,8 +17,15 @@ public class TestUserService {
         System.out.println("构造器，TestUserService...");
     }
 
-    @Autowired
+    //    @Autowired
+//    @Qualifier(value = "testUserRepositoryImpl")
     private TestUserRepository userRepository;
+
+    @Autowired
+    //@Qualifier(value = "testUserJdbcRepositoryImpl")
+    public void setUserRepository( TestUserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public void add() {
         System.out.println(" UserService add方法...");

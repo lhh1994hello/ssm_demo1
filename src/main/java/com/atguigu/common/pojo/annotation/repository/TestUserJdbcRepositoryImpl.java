@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
  * @date 2019/3/24 23:39
  * @Description:
  */
-//@Repository
-public class TestUserJdbcRepository implements TestUserRepository {
+@Repository
+public class TestUserJdbcRepositoryImpl implements TestUserRepository {
     @Override
     public void save() {
         System.out.println("TestUserJdbcRepository 的save方法...");
