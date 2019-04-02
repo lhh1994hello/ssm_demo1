@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- mybatis逆向工程配置文件 -->
+<generatorConfiguration>
+	<!-- <classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" 
+		/> -->
+
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+
+		<commentGenerator>
+			<!-- 阻止生成注释 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!--1.配置数据源 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/mybs2" userId="root"
+			password="123456">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!--2. 指定javaBean生成的位置 -->
+		<javaModelGenerator targetPackage="com.huat.bs.bean"
+			targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!--3. 指定sql映射文件所在的位置 -->
+		<sqlMapGenerator targetPackage="mapper" targetProject=".\src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 4.指定dao接口生成的位置，mapper接口 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.huat.bs.dao" targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!--5. 指定每个表的生成策略 -->
+		<!-- <table tableName="my_user" domainObjectName="User"></table>
+		<table tableName="category" domainObjectName="Category"></table>
+		<table tableName="menu" domainObjectName="Menu"></table> -->
+		
+		<table tableName="evaluation" domainObjectName="Evaluation"></table>
+		<!-- <table tableName="feedback" domainObjectName="Feedback"></table>
+		<table tableName="orderitem" domainObjectName="Orderitem"></table>
+		
+		<table tableName="orders" domainObjectName="Orders"></table>
+		<table tableName="adminuser" domainObjectName="AdminUser"></table>
+		<table tableName="my_collect" domainObjectName="Collects"></table> -->
+		
+	</context>
+</generatorConfiguration>
