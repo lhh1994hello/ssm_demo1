@@ -1,4 +1,4 @@
-package com.atguigu.demo.spring;
+package com.atguigu.demo.spring.bean;
 
 import com.atguigu.common.pojo.di.DIUserService;
 import org.junit.Test;

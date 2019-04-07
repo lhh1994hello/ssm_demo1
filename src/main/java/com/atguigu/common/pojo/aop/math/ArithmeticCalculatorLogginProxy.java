@@ -43,6 +43,8 @@ public class ArithmeticCalculatorLogginProxy {
              */
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+               // System.out.println("进入了...");
+               // System.out.println(proxy.toString());
                 String methodName = method.getName();
                 logger.info("the method is.:" + methodName + "  begin with :" + Arrays.asList(args));
                // System.out.println("执行了invoke.....");

@@ -14,7 +14,5 @@ public class ArithmeticCalculatorTest {
         System.out.println("sub:" + sub);
         System.out.println("mul:" + mul);
         System.out.println("div:" + div);
-
-
     }
 }

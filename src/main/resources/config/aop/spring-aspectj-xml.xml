@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/context  
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		
+		http://www.springframework.org/schema/task 
+		http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <!--基于配置文件方式配置AOP-->
+    <bean id="arithmeticCalculatorXML" class="com.atguigu.common.pojo.aop.math3.ArithmeticCalculatorXMLImpl"></bean>
+    <!--配置切面的bean-->
+    <bean id="loggingAspectWithXML" class="com.atguigu.demo.spring.aop.aspect.LoggingAspectWithXML"></bean>
+    <bean id="validationAspectWithXML" class="com.atguigu.demo.spring.aop.aspect.ValidationAspectWithXML"></bean>
+
+    <!--配置aop-->
+    <aop:config>
+        <!--配置切入点表达式-->
+        <aop:pointcut id="pointcut" expression="execution(public  * com.atguigu.common.pojo.aop.math3.ArithmeticCalculatorXML.*(..))"></aop:pointcut>
+        <!--配置日志切面和通知-->
+        <aop:aspect ref="loggingAspectWithXML" order="2">
+            <aop:before method="beforeMethod" pointcut-ref="pointcut"></aop:before>
+            <aop:after method="afterMethod" pointcut-ref="pointcut"></aop:after>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pointcut" throwing="ex"></aop:after-throwing>
+            <aop:after-returning method="afterReturning" pointcut-ref="pointcut" returning="result"></aop:after-returning>
+        </aop:aspect>
+        <!--配置日志的切面和通知-->
+        <aop:aspect ref="validationAspectWithXML" order="1">
+            <aop:before method="beforeMethod" pointcut-ref="pointcut"></aop:before>
+        </aop:aspect>
+    </aop:config>
+
+    <!--<aop:config>
+        &lt;!&ndash; 第一个* 代表方法返回值类型，为所有，如public &ndash;&gt;
+        &lt;!&ndash; 这个包下得所有类的所有方法，都添加事务 &ndash;&gt;
+        <aop:pointcut expression="execution(* com.huat.bs.service..*(..))"
+                      id="txPoint" />
+        &lt;!&ndash; 配置事务增强 &ndash;&gt;
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint" />
+    </aop:config>
+    &lt;!&ndash; 配置事务增强，就是事务如何切入，设置规则 &ndash;&gt;
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="insert*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="find" read-only="true" />
+            <tx:method name="get" read-only="true" />
+            <tx:method name="*" propagation="REQUIRED" />
+        </tx:attributes>
+    </tx:advice>-->
+
+</beans>

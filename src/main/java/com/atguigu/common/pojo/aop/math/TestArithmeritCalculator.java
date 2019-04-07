@@ -21,8 +21,10 @@ public class TestArithmeritCalculator {
     @Test
     public void funWithProxy() {
         ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculatorImpl();
-        ArithmeticCalculator proxy =
-                new ArithmeticCalculatorLogginProxy(arithmeticCalculator).getLogginProxy();
+        ArithmeticCalculator proxy = new ArithmeticCalculatorLogginProxy(arithmeticCalculator).getLogginProxy();
+        String name = proxy.getClass().getName();
+        System.out.println(name);
+
         int add = proxy.add(1, 2);
         System.out.println("--->" + add);
         int div = proxy.div(4, 2);
