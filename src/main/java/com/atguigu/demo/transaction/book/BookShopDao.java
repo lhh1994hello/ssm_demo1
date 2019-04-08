@@ -1,4 +1,4 @@
-package com.atguigu.demo.transaction;
+package com.atguigu.demo.transaction.book;
 
 /**
  * @author lhh
