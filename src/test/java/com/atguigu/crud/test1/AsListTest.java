@@ -12,6 +12,7 @@ import java.util.Arrays;
 public class AsListTest {
     @Test
     public  void  fun1(){
-        Arrays.asList(null);
+       // Arrays.asList(null);
+        com.google.common.annotations.VisibleForTesting a;
     }
 }
