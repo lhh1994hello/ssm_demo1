@@ -18,7 +18,9 @@ public class MysqlDBUtil {
     public static Connection getConnection() {
 
         try {
+            //会执行Driver类中的静态代码块
             Class.forName(DRIVERCLASS);
+            //DriverManager.registerDriver(new Driver());
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             return connection;
         } catch (Exception e) {

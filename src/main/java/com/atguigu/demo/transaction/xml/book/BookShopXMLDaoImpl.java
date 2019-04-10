@@ -1,20 +1,21 @@
-package com.atguigu.demo.transaction.book;
+package com.atguigu.demo.transaction.xml.book;
 
 import com.atguigu.demo.transaction.exception.BookStockException;
 import com.atguigu.demo.transaction.exception.UserAccountException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 /**
  * @author lhh
- * @date 2019/4/8 13:11
- * @Description:
+ * @date 2019/4/10 15:08
+ * @Description: 使用配置文件配置数据库事务
  */
-@Repository(value = "BookShopDao")
-public class BookShopDaoImpl implements BookShopDao {
-    @Autowired
+public class BookShopXMLDaoImpl implements BookShopXMLDao {
+
     private JdbcTemplate jdbcTemplate;
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     //根据书号获得书的价格
     @Override
@@ -22,7 +23,6 @@ public class BookShopDaoImpl implements BookShopDao {
         String sql = "SELECT price FROM tx_book WHERE isbn=?";
         //第二个参数指定返回值类型
         Integer price = jdbcTemplate.queryForObject(sql, Integer.class, isbn);
-        //String s = jdbcTemplate.queryForObject(sql, String.class, isbn);
         return price;
     }
 
@@ -35,7 +35,6 @@ public class BookShopDaoImpl implements BookShopDao {
         if (stock == 0) {
             throw new BookStockException("库存不足...");
         }
-
         String sql = " UPDATE tx_book_stock set stock=stock-1 WHERE isbn= ?";
         jdbcTemplate.update(sql, isbn);
     }

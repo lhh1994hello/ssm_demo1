@@ -1,7 +1,6 @@
-package com.atguigu.demo.transaction.service;
+package com.atguigu.demo.transaction.anno.service;
 
-import com.atguigu.demo.transaction.book.BookShopDao;
-import com.atguigu.demo.transaction.exception.UserAccountException;
+import com.atguigu.demo.transaction.anno.book.BookShopDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;

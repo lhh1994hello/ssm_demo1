@@ -1,11 +1,10 @@
-package com.atguigu.demo.transaction;
+package com.atguigu.demo.transaction.anno;
 
-import com.atguigu.demo.transaction.book.BookShopDao;
-import com.atguigu.demo.transaction.help.Cashier;
+import com.atguigu.demo.transaction.anno.book.BookShopDao;
+import com.atguigu.demo.transaction.anno.help.Cashier;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

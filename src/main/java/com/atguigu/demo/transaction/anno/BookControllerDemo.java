@@ -1,6 +1,6 @@
-package com.atguigu.demo.transaction;
+package com.atguigu.demo.transaction.anno;
 
-import com.atguigu.demo.transaction.service.BookShopService;
+import com.atguigu.demo.transaction.anno.service.BookShopService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

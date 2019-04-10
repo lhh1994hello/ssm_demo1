@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/context  
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		
+		http://www.springframework.org/schema/task 
+		http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <task:annotation-driven/>
+    <context:annotation-config/>
+
+    <!-- C3P0：配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="jdbc:mysql://106.14.155.20:3306/ssm_crud?characterEncoding=utf-8"></property>
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+    <!--jdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--NamedParameterJdbcTemplate类拓展了JdbcTemplate类，对JdbcTemplate类进行了封装从而支持命名参数特性-->
+    <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"></constructor-arg>
+    </bean>
+
+    <bean id="bookShopXMLDao" class="com.atguigu.demo.transaction.xml.book.BookShopXMLDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+
+    <bean id="bookShopXMLService" class="com.atguigu.demo.transaction.xml.service.BookShopXMLServiceImpl">
+        <property name="bookShopXMLDao" ref="bookShopXMLDao"></property>
+    </bean>
+    <bean id="cashierXML" class="com.atguigu.demo.transaction.xml.help.CashierXMLImpl">
+        <property name="bookShopXMLService" ref="bookShopXMLService"></property>
+    </bean>
+
+
+    <!--1.配置事物管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--启用事物注解-->
+    <!-- <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>-->
+    <!--2.配置事物属性-->
+    <!--相当于注解方式中的  @Transactional注解中的属性-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="checout" propagation="REQUIRED"/>
+            <tx:method name="purchase" propagation="REQUIRES_NEW"/>
+            <tx:method name="get*" read-only="true"></tx:method>
+            <tx:method name="find*" read-only="true"></tx:method>
+        </tx:attributes>
+    </tx:advice>
+    <!--3.配置事物切入点，以及把事务切入点和事物属性关联起来-->
+    <!--注解方式中，是直接作用在类或方法上，就不用再使用如下步骤来指定要作用的类或方法了-->
+    <aop:config>
+        <aop:pointcut id="txPointCut" expression="execution(public * com.atguigu.demo.transaction.xml..*.*(..))"></aop:pointcut>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"></aop:advisor>
+    </aop:config>
+</beans>

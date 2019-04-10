@@ -1,9 +1,8 @@
-package com.atguigu.demo.transaction.help;
+package com.atguigu.demo.transaction.anno.help;
 
-import com.atguigu.demo.transaction.service.BookShopService;
+import com.atguigu.demo.transaction.anno.service.BookShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
