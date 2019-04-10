@@ -27,6 +27,9 @@
 	<listener>
 		<listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
 	</listener>
+	<listener>
+		<listener-class>com.atguigu.demo.listener.MyDemoListener</listener-class>
+	</listener>
 	<!-- 2.springmvc的前端控制器 ，拦截所有请求 -->
 	<servlet>
 		<servlet-name>dispatcherServlet1</servlet-name>
