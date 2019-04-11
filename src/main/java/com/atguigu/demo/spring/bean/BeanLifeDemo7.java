@@ -13,7 +13,7 @@ import com.atguigu.common.pojo.beanlife.BeanLife;
  *
  */
 public class BeanLifeDemo7 {
-	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("config/bean-life.xml");
+	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("config/ioc/bean-life.xml");
 
 	@Test
 	public void fun1() {

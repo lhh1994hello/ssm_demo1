@@ -2,7 +2,6 @@ package com.atguigu.demo.spring.bean;
 
 import com.atguigu.common.pojo.cycle.PojoDemo01;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -11,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Description:
  */
 public class BeanLifeDemo03 {
-    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("config/beans-autowired.xml");
+    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("config/ioc/beans-autowired.xml");
 
     @Test
     public void fun1() {

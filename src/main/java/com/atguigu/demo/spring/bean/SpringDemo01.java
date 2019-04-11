@@ -1,6 +1,9 @@
 package com.atguigu.demo.spring.bean;
 
 import com.atguigu.common.pojo.*;
+import com.atguigu.common.pojo.other.Book;
+import com.atguigu.common.pojo.other.DataSourcePojo;
+import com.atguigu.common.pojo.other.Person;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,7 +12,7 @@ import java.util.Map;
 
 //作者:lhh 创建时间:2019年3月23日 下午10:12:37 
 public class SpringDemo01 {
-	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("config/applicationTest.xml");
+	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("config/ioc/applicationTest.xml");
 
     @Test
     public void DogDemo() {

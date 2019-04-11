@@ -1,6 +1,5 @@
 package com.atguigu.demo.spring.bean;
 
-import com.atguigu.common.pojo.Car;
 import com.atguigu.common.pojo.Dog;
 import com.atguigu.common.pojo.autowired.Address;
 import com.atguigu.common.pojo.autowired.Citizen;
@@ -14,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Description:
  */
 public class BeanAutowiredDemo02 {
-    ApplicationContext context = new ClassPathXmlApplicationContext("config/beans-autowired.xml");
+    ApplicationContext context = new ClassPathXmlApplicationContext("config/ioc/beans-autowired.xml");
 
     @Test
     public void fun1() {
@@ -39,7 +38,7 @@ public class BeanAutowiredDemo02 {
     //测试bean的作用域
     @Test
     public void carDemo() {
-        ApplicationContext context2 = new ClassPathXmlApplicationContext("config/beans-autowired.xml");
+        ApplicationContext context2 = new ClassPathXmlApplicationContext("config/ioc/beans-autowired.xml");
 
 //        Car car01 = (Car) context.getBean("car");
 //        Car car02 = (Car) context.getBean("car");

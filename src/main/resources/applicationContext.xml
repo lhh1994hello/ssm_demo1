@@ -19,11 +19,13 @@
 	<!-- 引入数据库配置参数文件 -->
 	<!-- <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder> -->
 	<context:property-placeholder location="classpath:*.properties" />
+    <!--定时器-->
 	<task:annotation-driven />
 
 	<context:annotation-config />
-<!--	<context:component-scan base-package="com" />-->
 
+    <!-- 使 AspectJ 的注解起作用，自动为匹配的类生成代理对象 -->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<!-- 开启注解扫描 -->
 	<context:component-scan base-package="com.atguigu.crud">
 		<context:exclude-filter type="annotation"
@@ -35,7 +37,6 @@
 		<property name="driverClass" value="${jdbc.driverClass}"></property>
 		<property name="user" value="${jdbc.user}"></property>
 		<property name="password" value="${jdbc.password}"></property>
-
 	</bean>
 
 	<!-- 配置和Mybatis的整合 -->

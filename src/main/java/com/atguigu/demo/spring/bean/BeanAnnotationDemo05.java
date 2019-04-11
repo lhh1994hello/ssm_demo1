@@ -14,7 +14,7 @@ public class BeanAnnotationDemo05 {
 
     @Test
     public void fun1() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("config/beans-annotation.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("config/ioc/beans-annotation.xml");
         TestUserController userController = context.getBean(TestUserController.class);
         userController.execute();
     }

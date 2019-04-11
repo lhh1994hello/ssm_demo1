@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间,，Sql隔离，目前来说， -->
+<mapper namespace="com.atguigu.common.mybatis.mapper.MyStudentMapper">
+    <select id="findAll" resultType="com.atguigu.common.mybatis.bean.MyStudent">
+        SELECT  sno,sname,ssex,sage,sdept from my_student
+    </select>
+</mapper>

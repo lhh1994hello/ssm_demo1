@@ -9,7 +9,7 @@ public class BeanDIDemo06 {
 
     @Test
     public void fun1() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("config/beans-di.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("config/ioc/beans-di.xml");
         //DIUserService dIUserService = (DIUserService) context.getBean(DIUserService.class);
         DIUserService dIUserService = (DIUserService) context.getBean("DIUserService");
         dIUserService.add();
