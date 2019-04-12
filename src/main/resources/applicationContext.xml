@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
 
-	xsi:schemaLocation="http://www.springframework.org/schema/aop 
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
@@ -16,77 +17,77 @@
 		http://www.springframework.org/schema/task 
 		http://www.springframework.org/schema/task/spring-task.xsd">
 
-	<!-- 引入数据库配置参数文件 -->
-	<!-- <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder> -->
-	<context:property-placeholder location="classpath:*.properties" />
+    <!-- 引入数据库配置参数文件 -->
+    <!-- <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder> -->
+    <context:property-placeholder location="classpath:*.properties"/>
     <!--定时器-->
-	<task:annotation-driven />
+    <task:annotation-driven/>
 
-	<context:annotation-config />
+    <context:annotation-config/>
 
-    <!-- 使 AspectJ 的注解起作用，自动为匹配的类生成代理对象 -->
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-	<!-- 开启注解扫描 -->
-	<context:component-scan base-package="com.atguigu.crud">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
-	<!-- C3P0：配置数据源 -->
-	<bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
-		<property name="driverClass" value="${jdbc.driverClass}"></property>
-		<property name="user" value="${jdbc.user}"></property>
-		<property name="password" value="${jdbc.password}"></property>
-	</bean>
+    <!-- 使 AspectJ 的注解起作用，自动为匹配的类生成代理对象,
+    放在这里不起作用，在springmvc配置文件中起作用了 -->
+    <!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
+    <!-- 开启注解扫描 -->
+    <context:component-scan base-package="com.atguigu.crud">
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!-- C3P0：配置数据源 -->
+    <bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+        <property name="driverClass" value="${jdbc.driverClass}"></property>
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
 
-	<!-- 配置和Mybatis的整合 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<!-- 指定mybatis全局配置文件的位置 -->
-		<property name="configLocation" value="classpath:SqlMapConfig.xml"></property>
-		<!-- 配置数据源 -->
-		<property name="dataSource" ref="pooledDataSource"></property>
-		<!-- 指定mybatis的mapper文件的位置 -->
-		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
-	</bean>
-	<!-- 配置扫描器，将mybatis接口的实现加入到IOC容器中 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<!-- 扫描dao包下接口的实现，加入到IOC 容器中 -->
-		<property name="basePackage" value="com.atguigu.crud.dao"></property>
+    <!-- 配置和Mybatis的整合 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 指定mybatis全局配置文件的位置 -->
+        <property name="configLocation" value="classpath:SqlMapConfig.xml"></property>
+        <!-- 配置数据源 -->
+        <property name="dataSource" ref="pooledDataSource"></property>
+        <!-- 指定mybatis的mapper文件的位置 -->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+    </bean>
+    <!-- 配置扫描器，将mybatis接口的实现加入到IOC容器中 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 扫描dao包下接口的实现，加入到IOC 容器中 -->
+        <property name="basePackage" value="com.atguigu.crud.dao"></property>
 
-	</bean>
-	<!-- 配置一个可以执行批量的sqlSession -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
-		<constructor-arg name="executorType" value="BATCH"></constructor-arg>
-	</bean>
+    </bean>
+    <!-- 配置一个可以执行批量的sqlSession -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+        <constructor-arg name="executorType" value="BATCH"></constructor-arg>
+    </bean>
 
 
-
-	<!-- ****************************************************************************** -->
-	<!-- 事物控制的配置 -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<!-- 控制住数据源 -->
-		<property name="dataSource" ref="pooledDataSource"></property>
-	</bean>
-	<!-- 开启基于注解的事务，或者基于xml配置的事务(主要的) -->
-	<aop:config>
-		<!-- 切入点表达式 -->
-		<aop:pointcut expression="execution(public * com.atguigu.crud.service..*(..))"
-			id="txPoint" />
-		<!-- 配置事务增强 -->
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint" />
-	</aop:config>
-	<!-- 配置事务增强，事务如何切入 -->
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<!-- 所有方法都是事务方法 -->
-			<tx:method name="*" />
-			<!-- 以get开始的所有方法 -->
-			<tx:method name="get*" read-only="true" />
-		</tx:attributes>
-	</tx:advice>
-	<!-- 引入CXF的配置文件 -->
-	<!-- <import resource="classpath*:/spring-cxf-config.xml" /> -->
+    <!-- ****************************************************************************** -->
+    <!-- 事物控制的配置 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 控制住数据源 -->
+        <property name="dataSource" ref="pooledDataSource"></property>
+    </bean>
+    <!-- 开启基于注解的事务，或者基于xml配置的事务(主要的) -->
+    <aop:config>
+        <!-- 切入点表达式 -->
+        <aop:pointcut expression="execution(public * com.atguigu.crud.service..*(..))"
+                      id="txPoint"/>
+        <!-- 配置事务增强 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
+    </aop:config>
+    <!-- 配置事务增强，事务如何切入 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 所有方法都是事务方法 -->
+            <tx:method name="*"/>
+            <!-- 以get开始的所有方法 -->
+            <tx:method name="get*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    <!-- 引入CXF的配置文件 -->
+    <!-- <import resource="classpath*:/spring-cxf-config.xml" /> -->
 
 </beans>
