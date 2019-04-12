@@ -20,8 +20,14 @@
     <!-- 引入数据库配置参数文件 -->
     <!-- <context:property-placeholder location="classpath:dbconfig.properties"></context:property-placeholder> -->
     <context:property-placeholder location="classpath:*.properties"/>
-    <!--定时器-->
-    <task:annotation-driven/>
+    <!--定时器-，开启这个配置，spring才能识别@Scheduled注解-->
+    <!-- 配置任务线性池 -->
+    <task:executor id="executor" pool-size="10"/>
+    <task:scheduler id="scheduler" pool-size="10"/>
+    <!-- 启用annotation方式 -->
+    <task:annotation-driven scheduler="scheduler" executor="executor" proxy-target-class="true"/>
+
+    <!--定时器只配置这样也是可以运行的<task:annotation-driven></task:annotation-driven>-->
 
     <context:annotation-config/>
 
@@ -54,7 +60,6 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 扫描dao包下接口的实现，加入到IOC 容器中 -->
         <property name="basePackage" value="com.atguigu.crud.dao"></property>
-
     </bean>
     <!-- 配置一个可以执行批量的sqlSession -->
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
@@ -62,8 +67,6 @@
         <constructor-arg name="executorType" value="BATCH"></constructor-arg>
     </bean>
 
-
-    <!-- ****************************************************************************** -->
     <!-- 事物控制的配置 -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -73,8 +76,7 @@
     <!-- 开启基于注解的事务，或者基于xml配置的事务(主要的) -->
     <aop:config>
         <!-- 切入点表达式 -->
-        <aop:pointcut expression="execution(public * com.atguigu.crud.service..*(..))"
-                      id="txPoint"/>
+        <aop:pointcut expression="execution(public * com.atguigu.crud.service..*(..))" id="txPoint"/>
         <!-- 配置事务增强 -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>
     </aop:config>

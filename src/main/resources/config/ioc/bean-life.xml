@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
 
-	xsi:schemaLocation="http://www.springframework.org/schema/aop
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
@@ -15,13 +16,19 @@
 		
 		http://www.springframework.org/schema/task 
 		http://www.springframework.org/schema/task/spring-task.xsd">
-	<!-- 往容器中添加一个对象 -->
+    <!-- 往容器中添加一个对象 -->
 
-	<bean id="beanLife" class="com.atguigu.common.pojo.beanlife.BeanLife"
-		init-method="init" destroy-method="destroy">
+    <bean id="beanLife" class="com.atguigu.common.pojo.beanlife.BeanLife"
+          init-method="init" destroy-method="destroy">
 
-	</bean>
+    </bean>
 
-	<!-- <bean id="myBeanProcesser" class="com.atguigu.demo.spring.help.MyBeanProcesser"></bean> -->
+    <!-- <bean id="myBeanProcesser" class="com.atguigu.demo.spring.help.MyBeanProcesser"></bean> -->
+    <!--工厂bean-->
+    <bean id="filterChainDefinitionMap" factory-bean="filterChainDefinitionMapBulider"
+          factory-method="bulidFilterChainDefinitionMap"></bean>
+
+    <bean id="filterChainDefinitionMapBulider"
+          class="com.atguigu.common.pojo.beanlife.FilterChainDefinitionMapBulider"></bean>
 
 </beans>
