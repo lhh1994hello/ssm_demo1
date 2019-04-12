@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author lhh
@@ -24,16 +25,16 @@ public class TimeConsumeAspect {
     public void aopCheck() {
 
     }
+    //@Pointcut(value = "execution(public  int  com.atguigu.common.pojo.aop.math2.ArithmeticCalculator2.*(..))")
+    @Pointcut(value = "execution(public * com.atguigu.crud.controller.EmployeeController.*(..))")
+    public void declareJoinpointExpress() {
 
-    @Before("aopCheck()")
-    public void beforeCheck(JoinPoint joinPoint) {
-        // 获取到类名
-        String targetName = joinPoint.getTarget().getClass().getName();
-        // 获取到方法名
+    }
+
+    @Before(value = "declareJoinpointExpress()")
+    public void beforeMethod(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
-        // 获取到参数
-        Object[] parameter = joinPoint.getArgs();
-        logger.info("类名:{},方法名:{},形参:{}", targetName, methodName, Arrays.toString(parameter));
-        System.out.println("前置增强...beforeCheck()");
+        List<Object> argsList = Arrays.asList(joinPoint.getArgs());
+        System.out.println("验证--》前置通知:methodName:" + methodName + ",参数:" + argsList);
     }
 }
