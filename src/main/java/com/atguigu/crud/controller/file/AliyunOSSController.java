@@ -32,7 +32,8 @@ public class AliyunOSSController {
 		System.out.println("七牛云路径:" + qiniuyunImageUrl);
 		Map<String, String> map = new HashMap<>();
 		map.put("imageUrl", imageUrl);
-		return Msg.Success().add("imageUrl", imageUrl);
+
+		return Msg.Success().add("imageUrl", imageUrl).add("test_url","https://www.baidu.com/?a=a&b=b");
 
 	}
 }

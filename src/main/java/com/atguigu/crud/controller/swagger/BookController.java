@@ -16,32 +16,32 @@ import com.atguigu.crud.util.Msg;
 @RequestMapping(value = "/book")
 @SuppressWarnings("all")
 public class BookController {
-	@RequestMapping(value = "/fun1")
-	public String fun1(RedirectAttributes redirectAttributes, Model model) {
-		System.out.println("测试fun1");
-		redirectAttributes.addAttribute("a", "A");
-		redirectAttributes.addFlashAttribute("c", "C");
-		model.addAttribute("b", "B");
-		// return "redirect:/fun1.jsp";
-		return "forward:/book/fun2";
-	}
+    @RequestMapping(value = "/fun1")
+    public String fun1(RedirectAttributes redirectAttributes, Model model) {
+        System.out.println("测试fun1");
+        redirectAttributes.addAttribute("a", "A");
+        redirectAttributes.addFlashAttribute("c", "C");
+        model.addAttribute("b", "B");
+        // return "redirect:/fun1.jsp";
+        return "forward:/book/fun2";
+    }
 
-	@RequestMapping(value = "/fun2")
-	public String fun2(RedirectAttributes redirectAttributes, Model model) {
-		System.out.println("测试fun1");
-		redirectAttributes.addAttribute("a", "A");
-		redirectAttributes.addFlashAttribute("c", "C");
-		model.addAttribute("b", "B");
-		// return "redirect:/fun1.jsp";
-		return "forward:/fun1.jsp";
-	}
+    @RequestMapping(value = "/fun2")
+    public String fun2(RedirectAttributes redirectAttributes, Model model) {
+        System.out.println("测试fun1");
+        redirectAttributes.addAttribute("a", "A");
+        redirectAttributes.addFlashAttribute("c", "C");
+        model.addAttribute("b", "B");
+        // return "redirect:/fun1.jsp";
+        return "forward:/view/test/fun1.jsp";
+    }
 
-	// 查询员工、
-	@ResponseBody
-	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
-	// 这个id是从路径中取出来的
-	public Msg getEmp(@PathVariable("id") Integer id) {
-		System.out.println("id=" + id);
-		return Msg.Success().add("emp", "aaa");
-	}
+    // 查询员工、
+    @ResponseBody
+    @RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
+    // 这个id是从路径中取出来的
+    public Msg getEmp(@PathVariable("id") Integer id) {
+        System.out.println("id=" + id);
+        return Msg.Success().add("emp", "aaa");
+    }
 }

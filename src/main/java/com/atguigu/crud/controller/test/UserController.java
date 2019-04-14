@@ -18,7 +18,7 @@ public class UserController {
 	@RequestMapping(value = "/fun2")
 	public String fun2() {
 		System.out.println("测试一下....fun2");
-		return "fun1";
+		return "view/test/fun1";
 	}
 
 }
