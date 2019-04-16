@@ -91,5 +91,6 @@
     </tx:advice>
     <!-- 引入CXF的配置文件 -->
     <!-- <import resource="classpath*:/spring-cxf-config.xml" /> -->
-
+    <!--测试线程池-->
+    <import resource="classpath*:config/thread/spring-threadPool.xml"/>
 </beans>
