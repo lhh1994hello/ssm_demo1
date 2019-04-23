@@ -10,6 +10,14 @@
 <body>
 <div id="root">{{msg}}</div>
 
+<div id="point">
+    <div>{{msg}}</div>
+    <button class="btn btn-success" @click="sendRequest">提交</button>
+    <ul>
+        <li v-for="(item ,index) of list" :key="index">{{item}}</li>
+    </ul>
+</div>
+
 <script type="text/javascript">
     new Vue({
         el: "#root",
@@ -17,6 +25,27 @@
             msg: "hello world"
         }
     });
+
+    new Vue({
+        el:"#point",
+        data:{
+            msg:"aaa",
+            list:[],
+        },
+        methods:{
+            sendRequest:function () {
+                console.log("发送请求...")
+                //发送get请求
+                this.$http.get('../../../vue/getArray').then(function(result){
+                    var array=result.extend.array;
+                    this.list=array;
+                },function(){
+                    console.log('请求失败处理');
+                });
+            }
+        },
+    });
+
 </script>
 </body>
 </html>
